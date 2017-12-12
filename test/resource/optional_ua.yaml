@@ -1,0 +1,19 @@
+test_cases:
+
+  - user_agent_string: 'MyUserAgent MyOS MyDevice'
+    family: 'MyFamRep'
+    major: 'MyMajorRep'
+    minor: 'MyMinorRep'
+    patch: 'MyPatchRep'
+
+  - user_agent_string: 'YourUserAgent YourOS YourDevice'
+    family: 'YourFamRep'
+    major: 'YourMajorRep'
+    minor: 'YourMinorRep'
+    patch: 'YourPatchRep'
+
+  - user_agent_string: 'CustomUserAgent CustomOS CustomDevice'
+    family: 'CustomFamRep'
+    major: 'CustomMajorRep'
+    minor: 'CustomMinorRep'
+    patch: 'CustomPatchRep'

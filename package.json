@@ -1,30 +1,35 @@
 {
   "name": "uaparser-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Parsing user agent strings.",
-  "main": "lib/index.js",
+  "main": "dist/uaparser.min.js",
   "scripts": {
-    "start": "node lib/index.js",
-    "build": "node_modules/typescript/bin/tsc",
-    "test": "node_modules/mocha/bin/mocha --compilers ts:espower-typescript/guess --timeout 30000　test/*.spec.ts"
+    "start": "node dist/uaparser.min.js",
+    "core:update": "git submodule foreach git pull origin master",
+    "core:json": "js-yaml ./uap-core/regexes.yaml > ./src/regexes.json",
+    "build": "npm run core:update && npm run core:json && webpack",
+    "test": "webpack && mocha --compilers ts:espower-typescript/guess --timeout 30000　test/*.spec.ts"
   },
   "author": "hogefrog <xatm092_04@hotmail.co.jp>",
   "license": "Apache 2.0",
   "devDependencies": {
     "@types/js-yaml": "^3.9.1",
+    "@types/lodash-es": "^4.17.0",
     "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.29",
     "espower-typescript": "^8.1.1",
+    "js-yaml": "^3.10.0",
     "mocha": "^3.5.3",
     "power-assert": "^1.4.4",
-    "typescript": "^2.5.2"
+    "ts-loader": "^3.2.0",
+    "typescript": "^2.5.2",
+    "webpack": "^3.10.0"
   },
   "dependencies": {
-    "js-yaml": "^3.10.0",
-    "uap-core": "git+https://git@github.com/ua-parser/uap-core#master"
+    "lodash-es": "^4.17.4"
   },
   "files": [
-    "lib",
+    "dist",
     "src",
     "test",
     "LICENSE",
