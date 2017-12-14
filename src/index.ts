@@ -56,13 +56,12 @@ class Parser {
 }
 
 const uap =  (regex?: parserRegex) => {
-  let data = (<any>defaultData);
+  let data = {
+    user_agent_parsers : regex ? unionBy(regex.user_agent_parsers, (<any>defaultData).user_agent_parsers, 'regex') : (<any>defaultData).user_agent_parsers,
+    os_parsers: regex ? unionBy(regex.os_parsers, (<any>defaultData).os_parsers, 'regex') : (<any>defaultData).os_parsers,
+    device_parsers: regex ? unionBy(regex.device_parsers, (<any>defaultData).device_parsers, 'regex') : (<any>defaultData).device_parsers
+  };
 
-  if (regex) {
-    data.user_agent_parsers = unionBy(regex.user_agent_parsers, data.user_agent_parsers, 'regex');
-    data.os_parsers = unionBy(regex.os_parsers, data.os_parsers, 'regex');
-    data.device_parsers = unionBy(regex.device_parsers, data.device_parsers, 'regex');
-  }
   return new Parser(data);
 };
 
