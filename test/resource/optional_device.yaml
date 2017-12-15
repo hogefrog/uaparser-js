@@ -1,0 +1,16 @@
+test_cases:
+
+  - user_agent_string: 'MyUserAgent MyOS MyDevice'
+    family: 'MyDeviceRep'
+    brand: 'MyBrandRep'
+    model: 'MyModelRep'
+
+  - user_agent_string: 'YourUserAgent YourOS YourDevice'
+    family: 'YourDeviceRep'
+    brand: 'YourBrandRep'
+    model: 'YourModelRep'
+
+  - user_agent_string: 'CustomUserAgent CustomOS CustomDevice'
+    family: 'CustomDeviceRep'
+    brand: 'CustomBrandRep'
+    model: 'CustomModelRep'
